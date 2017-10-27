@@ -1,0 +1,14 @@
+Package: pathmod
+Type: Package
+Title: Extract Latent Variables in a Formative-Reflective Model
+Version: 0.1
+Author: Matteo Pelagatti
+Maintainer: Matteo Pelagatti <matteo.pelagatti@unimib.it>
+Description: It extracts latent variables in a formative-reflective model using the method by Fattore, Pelagatti, Vittadini (2017).
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports: geigen (>= 2.0)
+URL: http://github.com/matteopelagatti/pathmod
+BugReports: http://github.com/matteopelagatti/pathmod/issues
