@@ -10,6 +10,8 @@
 \item{x}{an object of class \code{pathmod}}
 
 \item{round}{number of decimal places for the numbers to be printed (mostly correlations and \eqn{R^2})}
+
+\item{...}{other parameters that are passed to the standard print function used to print the matrices}
 }
 \value{
 It only prints text, it returns nothing.

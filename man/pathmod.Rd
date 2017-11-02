@@ -26,7 +26,7 @@ leave it \code{null}, then \code{cov} is assigned the correlation matrix of \cod
 
 \item{xsd}{optional parameter to scale the \eqn{x}-variables taken from \code{data}, otherwise equal to their sample standard deviations}
 
-\item{xsd}{optional parameter to scale the \eqn{y}-variables taken from \code{data}, otherwise equal to their sample standard deviations}
+\item{ysd}{optional parameter to scale the \eqn{y}-variables taken from \code{data}, otherwise equal to their sample standard deviations}
 }
 \value{
 An object of class \code{pathmod} with slots:

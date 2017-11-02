@@ -11,7 +11,7 @@
 #' @param xmean optional parameter to center the \eqn{x}-variables taken from \code{data}, otherwise equal to their sample means
 #' @param ymean optional parameter to center the \eqn{y}-variables taken from \code{data}, otherwise equal to their sample means
 #' @param xsd optional parameter to scale the \eqn{x}-variables taken from \code{data}, otherwise equal to their sample standard deviations
-#' @param xsd optional parameter to scale the \eqn{y}-variables taken from \code{data}, otherwise equal to their sample standard deviations
+#' @param ysd optional parameter to scale the \eqn{y}-variables taken from \code{data}, otherwise equal to their sample standard deviations
 #' @return An object of class \code{pathmod} with slots:
 #' \describe{
 #'     \item{\code{omegas}}{list of matrices \eqn{\Omega}, one for each element in \code{alpha}}
@@ -39,6 +39,8 @@
 #' xg <- list(c("gini", "farm", "rent"), c("gnpr", "labo"))
 #' yg <- list(c("inst", "ecks", "death"))
 #' pm <- pathmod(xg, yg, data = russett)
+#' @export
+#' @importFrom stats cor optim
 pathmod <- function(xgroups, ygroups, data = NULL, cov = NULL, alphas = seq(0, 10)/10,
                     xmean = NULL, ymean = NULL, xsd = NULL, ysd = NULL) {
   # --- input checks ---

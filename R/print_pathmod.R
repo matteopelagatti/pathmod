@@ -3,7 +3,9 @@
 #' Print the most important results created by the function \code{pathmod}.
 #' @param x an object of class \code{pathmod}
 #' @param round number of decimal places for the numbers to be printed (mostly correlations and \eqn{R^2})
+#' @param ... other parameters that are passed to the standard print function used to print the matrices
 #' @return It only prints text, it returns nothing.
+#' @export
 print.pathmod <- function(x, round = 3, ...) {
   # matrix with coefficients of determination
   M <- matrix(0, length(x$alphas), x$p + x$q + 4,
@@ -26,11 +28,11 @@ print.pathmod <- function(x, round = 3, ...) {
     OmSxx       <- x$omegas[[i]] %*% x$Sxx
     OmSxxOmt    <- OmSxx %*% t(x$omegas[[i]])
     invDiagOSOt <- diag(sqrt(diag(OmSxxOmt))^(-1))
-    invDiagGOSOtGt <- diag(sqrt(diag(x$gamma[[i]] %*% OmSxxOmt %*% t(x$gamma[[i]])))^(-1))
-    cor_xi_x[, , i] <- invDiagOSOt %*%
-      OmSxx %*% diag(sqrt(diag(x$Sxx))^(-1))
-    cor_eta_xi[, , i] <- invDiagGOSOtGt %*% x$gamma[[i]] %*% OmSxxOmt %*% invDiagOSOt
-    cor_y_eta[, , i]  <- invDiagGOSOtGt %*% x$gamma[[i]] %*% x$omega[[i]] %*% t(x$Syx) %*% diag(sqrt(diag(x$Syy))^(-1))
+    invDiagGOSOtGt <- diag(sqrt(diag(x$gammas[[i]] %*% OmSxxOmt %*% t(x$gammas[[i]])))^(-1),
+                           nrow(x$gamma[[i]]), nrow(x$gamma[[i]]))
+    cor_xi_x[, , i] <- invDiagOSOt %*% OmSxx %*% diag(sqrt(diag(x$Sxx))^(-1))
+    cor_eta_xi[, , i] <- invDiagGOSOtGt %*% x$gammas[[i]] %*% OmSxxOmt %*% invDiagOSOt
+    cor_y_eta[, , i]  <- invDiagGOSOtGt %*% x$gammas[[i]] %*% x$omegas[[i]] %*% t(x$Syx) %*% diag(sqrt(diag(x$Syy))^(-1))
   }
   cat("------- pathmod output -------\n")
   cat("\nCoefficients of determination\n")

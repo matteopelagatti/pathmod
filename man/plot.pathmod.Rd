@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{x}{an object of class \code{pathmod}}
+
+\item{...}{passed to the standard plot function used inside the function to draw a scatter plot}
 }
 \value{
 It produces a plot, it returns nothing.

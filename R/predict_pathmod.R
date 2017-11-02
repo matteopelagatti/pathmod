@@ -25,6 +25,7 @@
 #' supplied to the \code{pathmod()} call, then you have to assign this argument, otherwise this
 #' parameter is not needed. If you assign it when \code{ysd} is available in \code{object},
 #' then this value is used instead of the one present in \code{object}.
+#' @param ... further arguments passed to or from other methods
 #' @return A list with slots:
 #' \describe{
 #'   \item{\code{xis}}{3-dimensional array with a matrix of \eqn{\xi}-variables for each value of \eqn{\alpha}}
@@ -38,7 +39,8 @@
 #' yg <- list(c("inst", "ecks", "death"))
 #' pm <- pathmod(xg, yg, data = russett[1:40, ])
 #' pr <- predict(pm, russett[41:47, ])
-predict.pathmod <- function(object, newdata = NULL, xmean = NULL, ymean = NULL, xsd = NULL, ysd = NULL) {
+#' @export
+predict.pathmod <- function(object, newdata = NULL, xmean = NULL, ymean = NULL, xsd = NULL, ysd = NULL, ...) {
   # no newdata: returns insample xi, eta, xhat, yhat (one for each alpha)
   if (is.null(newdata)) {
     if (is.null(object$xis)) stop("no data supplied to the `pathmod()` function call or to the `newdata` parameter.")

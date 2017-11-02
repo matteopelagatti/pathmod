@@ -11,6 +11,8 @@
 
 \item{lv}{a string: \code{"xi"} to compute exogenous latent variables' rotation, \code{"eta"} to compute
 endogenous latent variables rotation}
+
+\item{...}{passed to the standard plot function used inside the function to draw a scatter plot}
 }
 \value{
 The function produces a plot and does not return anything.

@@ -28,6 +28,7 @@
 #'   0.9, 0.2, 0.8, 0.1, 0.8, 1.0),
 #'   6,6,byrow=TRUE)
 #' rrrbycov(S[4:6, 4:6], S[4:6, 1:3], S[1:3, 1:3], 1)
+#' @export
 rrrbycov <- function(Syy, Syx, Sxx, r = 1) {
   vr <- seq.int(r)
   nx <- ncol(Sxx)

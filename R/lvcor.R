@@ -10,6 +10,7 @@
 #'     \item{\code{etacor}}{\eqn{q} x \eqn{q} x \code{length(alphas)} array with the correlation between the endogenous latent
 #'     variables for \eqn{\alpha = 0} and the other values of \eqn{\alpha}}
 #' }
+#' @export
 lvcor <- function(pm) {
   na <- length(pm$alphas)
   if (na < 2) stop("I need a pathmod object with at least two values in the argument alphas")
